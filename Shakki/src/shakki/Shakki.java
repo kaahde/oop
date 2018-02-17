@@ -16,7 +16,6 @@ public class Shakki extends JFrame {
 	private static ArrayList<Shakkiruutu> ruudut = new ArrayList<Shakkiruutu>();
 	private static File tiedosto = new File("res/Tallennus.txt");
 	
-	public static int valittujaNappuloita = 0;
 	public static Nappula valittuNappula = null;
 	public static Shakkiruutu valittuRuutu = null;
 	public static boolean vuoroPelaamatta = true;
