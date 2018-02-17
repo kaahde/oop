@@ -30,6 +30,7 @@ public class Shakki extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setSize(540, 540);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		
 		JMenuBar valikko = new JMenuBar();
 		setJMenuBar(valikko);
