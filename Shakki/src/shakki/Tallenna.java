@@ -5,6 +5,10 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import javax.swing.JMenuItem;;
 
+/**
+ * Pelin valikon tallennuspainikkeen toiminnallisuuden sisältävä luokka
+ * @author Kadir
+ */
 public class Tallenna extends JMenuItem {
 	
 	public Tallenna(String s) {

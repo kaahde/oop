@@ -3,8 +3,8 @@ package shakki;
 import javax.swing.ImageIcon;
 
 /**
+ * Shakkilaudan nappulaa mallintava luokka
  * @author Kadir
- *
  */
 public class Nappula {
 	private Nappulat nimi;

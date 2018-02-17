@@ -6,8 +6,8 @@ import java.io.File;
 import java.util.ArrayList;
 
 /**
+ * Main-metodin sisältävä luokka, jossa luodaan lisäksi käyttöliittymä
  * @author Kadir
- *
  */
 public class Shakki extends JFrame {
 
@@ -40,12 +40,15 @@ public class Shakki extends JFrame {
 		
 		Tallenna tallennus = new Tallenna("Tallenna peli");
 		Lataa lataus = new Lataa("Lataa vanha peli");
+		UusiPeli uusi = new UusiPeli("Uusi peli");
+		peli.add(uusi);
 		peli.add(tallennus);
 		peli.add(lataus);
+		
 	}
 	
 	/**
-	 * Palauttaa ruudukon
+	 * Palauttaa shakkilaudan ruudut ArrayListinä
 	 * @return ArrayList, jossa on kaikki ruudut 
 	 */
 	public static ArrayList<Shakkiruutu> annaRuudut() {
@@ -54,9 +57,9 @@ public class Shakki extends JFrame {
 	
 	
 	/**
-	 * Luo käyttöliittymän
+	 * Luo käyttöliittymän ja alustaa shakkilaudan
 	 */
-	private void luoUI() {
+	public void luoUI() {
 		
 		JPanel paneeli = new JPanel();
 		getContentPane().add(paneeli);

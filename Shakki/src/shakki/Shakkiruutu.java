@@ -6,8 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * Shakkilaudan yksittäistä ruutua kuvaava luokka
  * @author Kadir
- *
  */
 public class Shakkiruutu extends JButton {
 	

@@ -5,6 +5,10 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import javax.swing.JMenuItem;;
 
+/**
+ *  Pelin valikon latauspainikkeen toiminnallisuuden sisältävä luokka
+ * @author Kadir
+ */
 public class Lataa extends JMenuItem {
 	
 	public Lataa(String s) {
