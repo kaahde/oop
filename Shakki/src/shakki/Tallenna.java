@@ -16,7 +16,7 @@ public class Tallenna extends JMenu {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				
-				File tiedosto = new File("Tallennus.txt");
+				File tiedosto = new File("res/Tallennus.txt");
 		
 				try {
 					FileWriter kirjoittaja = new FileWriter(tiedosto);
