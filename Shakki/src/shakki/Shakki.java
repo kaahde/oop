@@ -2,6 +2,7 @@ package shakki;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -13,6 +14,7 @@ public class Shakki extends JFrame {
 	private Shakkiruutu ruutu;
 	
 	private static ArrayList<Shakkiruutu> ruudut = new ArrayList<Shakkiruutu>();
+	private static File tiedosto = new File("res/Tallennus.txt");
 	
 	public static int valittujaNappuloita = 0;
 	public static Nappula valittuNappula = null;
@@ -33,8 +35,14 @@ public class Shakki extends JFrame {
 		JMenuBar valikko = new JMenuBar();
 		setJMenuBar(valikko);
 		
-		Tallenna tallennuspainike = new Tallenna("Tallenna");
-		valikko.add(tallennuspainike);
+		JMenu peli =  new JMenu("Peli");
+		valikko.add(peli);
+		
+		
+		Tallenna tallennus = new Tallenna("Tallenna peli");
+		Lataa lataus = new Lataa("Lataa vanha peli");
+		peli.add(tallennus);
+		peli.add(lataus);
 	}
 	
 	/**
@@ -127,19 +135,23 @@ public class Shakki extends JFrame {
 					try {
 						r.setIcon(r.annaNappula().annaKuva());
 					} catch (Exception e) {
-						r.setText("");
+						r.setIcon(null);
 					}
 				} else {
 					try {
 						r.setIcon(null);
 					} catch (Exception e) {
-						r.setText("");
+						r.setIcon(null);
 					}
 				}
 			}
 		}
 	}
 	
+	/**
+	 * Palauttaa pelin tilan tallennusta varten
+	 * @return Merkkijono, jossa omilla riveillä ruuduissa sijaitsevat nappulat
+	 */
 	public static String annaTila() {
 		String tila = "";
 		
@@ -152,6 +164,10 @@ public class Shakki extends JFrame {
 		}
 		
 		return tila;
+	}
+	
+	public static File annaTiedosto() {
+		return tiedosto;
 	}
 	
 	/**

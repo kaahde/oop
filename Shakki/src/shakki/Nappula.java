@@ -19,51 +19,51 @@ public class Nappula {
 	public Nappula(Nappulat nappula, Varit vari) {
 		if (nappula == Nappulat.SOTILAS && vari == Varit.MUSTA) {
 			nimi = Nappulat.SOTILAS;
-			vari = Varit.MUSTA;
+			this.vari = Varit.MUSTA;
 			kuva = new ImageIcon("res/kuvat/sotilas_m.png");
 		} else if (nappula == Nappulat.SOTILAS && vari == Varit.VALKOINEN) {
 			nimi = Nappulat.SOTILAS;
-			vari = Varit.VALKOINEN;
+			this.vari = Varit.VALKOINEN;
 			kuva = new ImageIcon("res/kuvat/sotilas_v.png");
 		} else if (nappula == Nappulat.TORNI && vari == Varit.MUSTA) {
 			nimi = Nappulat.TORNI;
-			vari = Varit.MUSTA;
+			this.vari = Varit.MUSTA;
 			kuva = new ImageIcon("res/kuvat/torni_m.png");
 		} else if (nappula == Nappulat.TORNI && vari == Varit.VALKOINEN) {
 			nimi = Nappulat.TORNI;
-			vari = Varit.VALKOINEN;
+			this.vari = Varit.VALKOINEN;
 			kuva = new ImageIcon("res/kuvat/torni_v.png");
 		} else if (nappula == Nappulat.RATSU && vari == Varit.MUSTA) {
 			nimi = Nappulat.RATSU;
-			vari = Varit.MUSTA;
+			this.vari = Varit.MUSTA;
 			kuva = new ImageIcon("res/kuvat/ratsu_m.png");
 		} else if (nappula == Nappulat.RATSU && vari == Varit.VALKOINEN) {
 			nimi = Nappulat.RATSU;
-			vari = Varit.VALKOINEN;
+			this.vari = Varit.VALKOINEN;
 			kuva = new ImageIcon("res/kuvat/ratsu_v.png");
 		} else if (nappula == Nappulat.LAHETTI && vari == Varit.MUSTA) {
 			nimi = Nappulat.LAHETTI;
-			vari = Varit.MUSTA;
+			this.vari = Varit.MUSTA;
 			kuva = new ImageIcon("res/kuvat/lahetti_m.png");
 		} else if (nappula == Nappulat.LAHETTI && vari == Varit.VALKOINEN) {
 			nimi = Nappulat.LAHETTI;
-			vari = Varit.VALKOINEN;
+			this.vari = Varit.VALKOINEN;
 			kuva = new ImageIcon("res/kuvat/lahetti_v.png");
 		} else if (nappula == Nappulat.KUNINGATAR && vari == Varit.MUSTA) {
 			nimi = Nappulat.KUNINGATAR;
-			vari = Varit.MUSTA;
+			this.vari = Varit.MUSTA;
 			kuva = new ImageIcon("res/kuvat/kuningatar_m.png");
 		} else if (nappula == Nappulat.KUNINGATAR && vari == Varit.VALKOINEN) {
 			nimi = Nappulat.KUNINGATAR;
-			vari = Varit.VALKOINEN;
+			this.vari = Varit.VALKOINEN;
 			kuva = new ImageIcon("res/kuvat/kuningatar_v.png");
 		} else if (nappula == Nappulat.KUNINGAS && vari == Varit.MUSTA) {
 			nimi = Nappulat.KUNINGAS;
-			vari = Varit.MUSTA;
+			this.vari = Varit.MUSTA;
 			kuva = new ImageIcon("res/kuvat/kuningas_m.png");
 		} else if (nappula == Nappulat.KUNINGAS && vari == Varit.VALKOINEN) {
 			nimi = Nappulat.KUNINGAS;
-			vari = Varit.VALKOINEN;
+			this.vari = Varit.VALKOINEN;
 			kuva = new ImageIcon("res/kuvat/kuningas_v.png");
 		} 
 	}

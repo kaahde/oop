@@ -3,10 +3,9 @@ package shakki;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
+import javax.swing.JMenuItem;;
 
-import javax.swing.JMenu;
-
-public class Tallenna extends JMenu {
+public class Tallenna extends JMenuItem {
 	
 	public Tallenna(String s) {
 		super(s);
@@ -16,10 +15,8 @@ public class Tallenna extends JMenu {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				
-				File tiedosto = new File("res/Tallennus.txt");
-		
 				try {
-					FileWriter kirjoittaja = new FileWriter(tiedosto);
+					FileWriter kirjoittaja = new FileWriter(Shakki.annaTiedosto());
 					
 					kirjoittaja.write(Shakki.annaTila());
 					kirjoittaja.flush();
