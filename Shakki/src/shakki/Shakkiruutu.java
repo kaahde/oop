@@ -22,10 +22,9 @@ public class Shakkiruutu extends JButton {
 	 * @param rivi Ruudun rivi
 	 * @param sarake Ruudun sarake
 	 */
-	public Shakkiruutu(int rivi, int sarake, Nappula nappula) {
+	public Shakkiruutu(int rivi, int sarake) {
 		this.rivi = rivi;
 		this.sarake = sarake;
-		this.nappula = nappula;
 		
 		// Asettaa ruudun värin
 		if (rivi % 2 == 1 && sarake % 2 == 0 || rivi % 2 == 0 && sarake % 2 == 1) {
@@ -42,22 +41,38 @@ public class Shakkiruutu extends JButton {
 		setFocusPainted(false);
 		setContentAreaFilled(false);
 		
+		// Nappuloiden siirtäminen
+		int r = this.rivi;
+		int s = this.sarake;
 		
 		addActionListener(
 				new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
-						if (valittu == false && Shakki.valittujaNappuloita <= 1) {
+						if (valittu == false && Shakki.valittujaNappuloita == 0) {
 							valittu = true;
-							Shakki.valittujaNappuloita++;
+							Shakki.valittuRuutu = annaRuutu();
+							Shakki.valittujaNappuloita = 1;
 							Shakki.valittuNappula = nappula;
 							setBackground(Color.GREEN);
-						} else {
+						} else if (valittu == true && Shakki.valittujaNappuloita == 1){
 							valittu = false;
 							setBackground(vari);
-							Shakki.valittujaNappuloita--;
-						}
+							Shakki.valittujaNappuloita = 0;
+							Shakki.valittuRuutu = null;
+							Shakki.valittuNappula = null;
+						} else if (valittu == false && Shakki.valittujaNappuloita == 1) {
+							Shakki.annaRuudut().get(r * 8 + s).asetaNappula(Shakki.valittuNappula);
+							Shakki.valittuRuutu.asetaNappula(null);
+							Shakki.valittuRuutu.setBackground(Shakki.valittuRuutu.vari);
+							
+							Shakki.valittujaNappuloita = 0;
+							Shakki.valittuNappula = null;
+							Shakki.valittuRuutu = null;
+							
+							Shakki.paivitaRuudut();
+						} 
 						
 					}
 				}
@@ -79,6 +94,31 @@ public class Shakkiruutu extends JButton {
 	 */
 	public int annaSarake() {
 		return sarake;
+	}
+	
+	
+	/**
+	 * Palauttaa ruudun nappulan
+	 * @return Ruudussa oleva nappula
+	 */
+	public Nappula annaNappula() {
+		return nappula;
+	}
+	
+	/**
+	 * Asettaa ruutuun nappulan
+	 * @param n Uusi nappula
+	 */
+	public void asetaNappula(Nappula n) {
+		nappula = n;
+	}
+	
+	/**
+	 * Palauttaa tämän shakkiruudun
+	 * @return Tämä ruutu
+	 */
+	public Shakkiruutu annaRuutu() {
+		return this;
 	}
 	
 }
