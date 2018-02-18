@@ -74,6 +74,7 @@ public class Shakkiruutu extends JButton {
 									Shakki.annaRuudut().get(r * 8 + s).asetaNappula(Shakki.valittuNappula);
 									Shakki.valittuRuutu.asetaNappula(null);
 									Shakki.valittuRuutu.setBackground(Shakki.valittuRuutu.vari);
+									Shakki.valittuRuutu.valittu = false;
 									
 									Shakki.valittuNappula = null;
 									Shakki.valittuRuutu = null;
