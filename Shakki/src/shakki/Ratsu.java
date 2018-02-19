@@ -19,6 +19,6 @@ public class Ratsu extends Nappula {
 	@Override
 	public boolean onkoSiirtoSallittu(Shakkiruutu alku, Shakkiruutu loppu) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 }

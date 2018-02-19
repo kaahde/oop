@@ -100,7 +100,7 @@ public class Shakkiruutu extends JButton {
 					}
 				}
 		);
-		
+	
 	}
 	
 	/**

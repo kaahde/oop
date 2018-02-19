@@ -13,7 +13,7 @@ public class Tallenna extends JMenuItem {
 	
 	public Tallenna(String s) {
 		super(s);
-		
+	
 		addActionListener(new ActionListener() {
 			
 			@Override

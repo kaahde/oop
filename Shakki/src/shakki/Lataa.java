@@ -13,7 +13,7 @@ public class Lataa extends JMenuItem {
 	
 	public Lataa(String s) {
 		super(s);
-		
+	
 		
 		addActionListener(new ActionListener() {
 			

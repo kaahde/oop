@@ -10,7 +10,7 @@ import javax.swing.JMenuItem;;
  * @author Kadir
  */
 public class UusiPeli extends JMenuItem {
-	
+
 	public UusiPeli(String s) {
 		super(s);
 		

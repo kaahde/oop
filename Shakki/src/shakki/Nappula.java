@@ -7,7 +7,7 @@ import javax.swing.ImageIcon;
  * @author Kadir
  */
 public abstract class Nappula {
-	
+
 	protected Nappulat nimi;
 	protected Varit vari;
 	protected ImageIcon kuva;

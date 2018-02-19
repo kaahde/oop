@@ -20,7 +20,6 @@ public class Shakki extends JFrame {
 	private static boolean vuoroPelaamatta = true;
 	
 	
-	
 	/**
 	 * Konstruktori
 	 */

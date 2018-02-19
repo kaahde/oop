@@ -28,7 +28,7 @@ public class Sotilas extends Nappula {
 			} else if (loppu.annaSarake() == alku.annaSarake() && loppu.annaRivi() >= alku.annaRivi() - 1 && loppu.annaRivi() < alku.annaRivi() && loppu.annaNappula() == null)  {
 				return true;
 			// Syodessa voi liikkuta yhden ruudun eteenpain viistoon
-			} else if (loppu.annaSarake() == alku.annaSarake() + 1  || loppu.annaSarake() == alku.annaSarake() - 1 && loppu.annaRivi() >= alku.annaRivi() - 1 && loppu.annaRivi() < alku.annaRivi() && loppu.annaNappula() != null)  {
+			} else if ((loppu.annaSarake() == alku.annaSarake() + 1  || loppu.annaSarake() == alku.annaSarake() - 1) && loppu.annaRivi() >= alku.annaRivi() - 1 && loppu.annaRivi() < alku.annaRivi() && loppu.annaNappula() != null)  {
 				return true;
 			}
 		} else if (this.vari == Varit.MUSTA) {
