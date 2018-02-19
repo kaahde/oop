@@ -32,7 +32,14 @@ public class Sotilas extends Nappula {
 				return true;
 			}
 		} else if (this.vari == Varit.MUSTA) {
-			if (loppu.annaRivi() == alku.annaRivi() && loppu.annaSarake() <= alku.annaSarake() + 1 && loppu.annaSarake() > alku.annaSarake())  {
+			// Ensimmaisella siirrolla voi liikuttaa 1 tai 2 ruutua eteenpain
+			if (loppu.annaSarake() == alku.annaSarake() && alku.annaRivi() == 1 && loppu.annaRivi() <= alku.annaRivi() + 2 && loppu.annaRivi() > alku.annaRivi() && loppu.annaNappula() == null) {
+				return true;
+			// Muilla siirroilla voi liikuttaa yhden ruudun eteenpain
+			} else if (loppu.annaSarake() == alku.annaSarake() && loppu.annaRivi() <= alku.annaRivi() + 1 && loppu.annaRivi() > alku.annaRivi() && loppu.annaNappula() == null)  {
+				return true;
+			// Syodessa voi liikkuta yhden ruudun eteenpain viistoon
+			} else if ((loppu.annaSarake() == alku.annaSarake() + 1  || loppu.annaSarake() == alku.annaSarake() - 1) && loppu.annaRivi() <= alku.annaRivi() + 1 && loppu.annaRivi() > alku.annaRivi() && loppu.annaNappula() != null)  {
 				return true;
 			}
 		}
