@@ -3,6 +3,7 @@ package shakki;
 import javax.swing.ImageIcon;
 
 public class Sotilas extends Nappula {
+	private final String nimi = "SOTILAS";
 	
 	/**
 	 * Konstruktori
@@ -15,6 +16,11 @@ public class Sotilas extends Nappula {
 		} else if ( v == Varit.VALKOINEN) {
 			kuva = new ImageIcon("res/kuvat/sotilas_v.png");
 		}
+	}
+	
+	@Override
+	public String annaNimi() {
+		return nimi;
 	}
 
 	@Override

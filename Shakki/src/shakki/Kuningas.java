@@ -3,6 +3,9 @@ package shakki;
 import javax.swing.ImageIcon;
 
 public class Kuningas extends Nappula {
+	
+	private final String nimi = "KUNINGAS";
+	
 	/**
 	 * Konstruktori
 	 * @param v Nappulan vari
@@ -14,6 +17,11 @@ public class Kuningas extends Nappula {
 		} else if ( v == Varit.VALKOINEN) {
 			kuva = new ImageIcon("res/kuvat/kuningas_v.png");
 		}
+	}
+	
+	@Override
+	public String annaNimi() {
+		return nimi;
 	}
 
 	@Override

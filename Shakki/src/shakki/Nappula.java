@@ -7,8 +7,7 @@ import javax.swing.ImageIcon;
  * @author Kadir
  */
 public abstract class Nappula {
-
-	protected Nappulat nimi;
+	
 	protected Varit vari;
 	protected ImageIcon kuva;
 	protected int rivi;
@@ -22,12 +21,8 @@ public abstract class Nappula {
 		this.vari = vari;
 	}
 	
+	public abstract String annaNimi();
 
-	
-	public Nappulat annaNimi() {
-		return nimi;
-	}
-	
 	public Varit annaVari() {
 		return vari;
 	}
