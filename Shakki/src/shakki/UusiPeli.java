@@ -6,7 +6,7 @@ import java.io.*;
 import javax.swing.JMenuItem;;
 
 /**
- * Valikon uuden pelin alustamisen toiminnalisuuden sisältävä luokka
+ * Valikon uuden pelin alustamisen toiminnalisuuden sisaltava luokka
  * @author Kadir
  */
 public class UusiPeli extends JMenuItem {

@@ -6,7 +6,7 @@ import java.io.*;
 import javax.swing.JMenuItem;;
 
 /**
- * Pelin valikon tallennuspainikkeen toiminnallisuuden sisältävä luokka
+ * Pelin valikon tallennuspainikkeen toiminnallisuuden sisaltava luokka
  * @author Kadir
  */
 public class Tallenna extends JMenuItem {

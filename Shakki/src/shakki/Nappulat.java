@@ -1,7 +1,7 @@
 package shakki;
 
 /**
- * Shakkinappuloiden nimet sisältävä enum
+ * Shakkinappuloiden nimet sisaltava enum
  * @author Kadir
  */
 public enum Nappulat {

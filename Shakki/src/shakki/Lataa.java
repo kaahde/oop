@@ -6,7 +6,7 @@ import java.io.*;
 import javax.swing.JMenuItem;;
 
 /**
- *  Pelin valikon latauspainikkeen toiminnallisuuden sisältävä luokka
+ *  Pelin valikon latauspainikkeen toiminnallisuuden sisaltava luokka
  * @author Kadir
  */
 public class Lataa extends JMenuItem {

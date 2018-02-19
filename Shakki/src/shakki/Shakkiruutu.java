@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Shakkilaudan yksittäistä ruutua kuvaava luokka
+ * Shakkilaudan yksittaista ruutua kuvaava luokka
  * @author Kadir
  */
 public class Shakkiruutu extends JButton {
@@ -26,7 +26,7 @@ public class Shakkiruutu extends JButton {
 		this.rivi = rivi;
 		this.sarake = sarake;
 		
-		// Asettaa ruudun värin
+		// Asettaa ruudun vï¿½rin
 		if (rivi % 2 == 1 && sarake % 2 == 0 || rivi % 2 == 0 && sarake % 2 == 1) {
 			vari = Color.decode("#ba9e64");
 			setBackground(vari);
@@ -35,13 +35,13 @@ public class Shakkiruutu extends JButton {
 			setBackground(vari);
 		}
 		
-		// Ruudun ulkonäköön vaikuttavia asioita
+		// Ruudun ulkonakoon vaikuttavia asioita
 		setSize(new Dimension(60, 60));
 		setBorderPainted(false);
 		setFocusPainted(false);
 		setContentAreaFilled(false);
 		
-		// Nappuloiden siirtäminen
+		// Nappuloiden siirtaminen
 		int r = this.rivi;
 		int s = this.sarake;
 		
@@ -51,45 +51,45 @@ public class Shakkiruutu extends JButton {
 					@Override
 					public void actionPerformed(ActionEvent arg0) {
 						// Valitaan uusi ruutu
-						if (Shakki.valittuRuutu == null && Shakki.valittuNappula == null) {		
+						if (Shakki.annaValittuRuutu() == null && Shakki.annaValittuNappula() == null) {		
 							if (nappula != null) {	
 								valittu = true;
-								Shakki.valittuRuutu = annaRuutu();
-								Shakki.valittuNappula = nappula;
+								Shakki.asetaValittuRuutu(annaRuutu());
+								Shakki.asetaValittuNappula(nappula);
 								setBackground(Color.GREEN);
 							}
 						} 
 						// Klikataan jo valittua ruutua
-						else if (valittu == true && Shakki.valittuRuutu != null){		
+						else if (valittu == true && Shakki.annaValittuRuutu() != null){		
 							valittu = false;
 							setBackground(vari);
-							Shakki.valittuRuutu = null;
-							Shakki.valittuNappula = null;
+							Shakki.asetaValittuRuutu(null);
+							Shakki.asetaValittuNappula(null);
 						} 
-						// Klikataan valitun ruudun jälkeen toista ruutua
-						else if (valittu == false && Shakki.valittuRuutu != null && Shakki.valittuNappula != null) {
+						// Klikataan valitun ruudun jalkeen toista ruutua
+						else if (valittu == false && Shakki.annaValittuRuutu() != null && Shakki.annaValittuNappula() != null) {
 							try {
-								// Nappulaa ei voi siirtää toisen oman nappulan päälle
-								if (Shakki.valittuNappula.annaVari() != nappula.annaVari()) {
-									Shakki.annaRuudut().get(r * 8 + s).asetaNappula(Shakki.valittuNappula);
-									Shakki.valittuRuutu.asetaNappula(null);
-									Shakki.valittuRuutu.setBackground(Shakki.valittuRuutu.vari);
-									Shakki.valittuRuutu.valittu = false;
+								// Nappulaa ei voi siirtaa toisen oman nappulan paalle
+								if (Shakki.annaValittuNappula().annaVari() != nappula.annaVari()) {
+									Shakki.annaRuudut().get(r * 8 + s).asetaNappula(Shakki.annaValittuNappula());
+									Shakki.annaValittuRuutu().asetaNappula(null);
+									Shakki.annaValittuRuutu().setBackground(Shakki.annaValittuRuutu().vari);
+									Shakki.annaValittuRuutu().valittu = false;
 									
-									Shakki.valittuNappula = null;
-									Shakki.valittuRuutu = null;
+									Shakki.asetaValittuNappula(null);
+									Shakki.asetaValittuRuutu(null);
 									
 									Shakki.paivitaRuudut();
 								}
-								// Jos kohteena on tyhjä ruutu, siirtäminen onnistuu
+								// Jos kohteena on tyhja ruutu, siirtaminen onnistuu
 							} catch (NullPointerException e) {
-								Shakki.annaRuudut().get(r * 8 + s).asetaNappula(Shakki.valittuNappula);
-								Shakki.valittuRuutu.asetaNappula(null);
-								Shakki.valittuRuutu.setBackground(Shakki.valittuRuutu.vari);
-								Shakki.valittuRuutu.valittu = false;
+								Shakki.annaRuudut().get(r * 8 + s).asetaNappula(Shakki.annaValittuNappula());
+								Shakki.annaValittuRuutu().asetaNappula(null);
+								Shakki.annaValittuRuutu().setBackground(Shakki.annaValittuRuutu().vari);
+								Shakki.annaValittuRuutu().valittu = false;
 								
-								Shakki.valittuNappula = null;
-								Shakki.valittuRuutu = null;
+								Shakki.asetaValittuNappula(null);
+								Shakki.asetaValittuRuutu(null);
 								
 								Shakki.paivitaRuudut();
 							}
@@ -135,8 +135,8 @@ public class Shakkiruutu extends JButton {
 	}
 	
 	/**
-	 * Palauttaa tämän shakkiruudun
-	 * @return Tämä ruutu
+	 * Palauttaa taman shakkiruudun
+	 * @return Tama ruutu
 	 */
 	public Shakkiruutu annaRuutu() {
 		return this;

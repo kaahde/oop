@@ -1,7 +1,7 @@
 package shakki;
 
 /**
- * Shakkipelin nappuloiden värit sisältävä enum
+ * Shakkipelin nappuloiden varit sisaltava enum
  * @author Kadir
  */
 public enum Varit {

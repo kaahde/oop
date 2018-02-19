@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 /**
- * Main-metodin sisältävä luokka, jossa luodaan lisäksi käyttöliittymä
+ * Main-metodin sisaltava luokka, jossa luodaan lisaksi kayttoliittyma
  * @author Kadir
  */
 public class Shakki extends JFrame {
@@ -15,10 +15,13 @@ public class Shakki extends JFrame {
 	
 	private static ArrayList<Shakkiruutu> ruudut = new ArrayList<Shakkiruutu>();
 	private static File tiedosto = new File("res/Tallennus.txt");
+	private static Nappula valittuNappula = null;
+	private static Shakkiruutu valittuRuutu = null;
+	private static boolean vuoroPelaamatta = true;
 	
-	public static Nappula valittuNappula = null;
-	public static Shakkiruutu valittuRuutu = null;
-	public static boolean vuoroPelaamatta = true;
+	
+	
+	
 	
 	/**
 	 * Konstruktori
@@ -49,7 +52,7 @@ public class Shakki extends JFrame {
 	}
 	
 	/**
-	 * Palauttaa shakkilaudan ruudut ArrayListinä
+	 * Palauttaa shakkilaudan ruudut ArrayListina
 	 * @return ArrayList, jossa on kaikki ruudut 
 	 */
 	public static ArrayList<Shakkiruutu> annaRuudut() {
@@ -58,7 +61,7 @@ public class Shakki extends JFrame {
 	
 	
 	/**
-	 * Luo käyttöliittymän ja alustaa shakkilaudan
+	 * Luo kayttoliittyman ja alustaa shakkilaudan
 	 */
 	public void luoUI() {
 		
@@ -74,7 +77,7 @@ public class Shakki extends JFrame {
 				// Luo shakkilaudan ruudun
 				ruutu = new Shakkiruutu(i, j);
 				
-				// Lisää ruudun ArrayListiin
+				// Lisï¿½ï¿½ ruudun ArrayListiin
 				ruudut.add(ruutu);
 				
 				// Alustaa nappulat
@@ -106,7 +109,7 @@ public class Shakki extends JFrame {
 					ruutu.asetaNappula(null);
 				}
 				
-				// Lisää nappuloiden kuvat ruudukkoon
+				// Lisï¿½ï¿½ nappuloiden kuvat ruudukkoon
 				try {
 					ruutu.setIcon(ruutu.annaNappula().annaKuva());
 				} catch (Exception e) {
@@ -115,7 +118,7 @@ public class Shakki extends JFrame {
 				ruutu.setHorizontalAlignment(SwingConstants.CENTER);
 				ruutu.setVerticalAlignment(SwingConstants.CENTER);
 				
-				// Muuttaa ruudun taustavärin näkyväksi ja lisää ruudun paneeliin
+				// Muuttaa ruudun taustavarin nakyvaksi ja lisaa ruudun paneeliin
 				ruutu.setOpaque(true);
 				paneeli.add(ruutu);
 			}
@@ -125,7 +128,7 @@ public class Shakki extends JFrame {
 	
 	
 	/**
-	 * Päivittää shakkilaudan ruudukon
+	 * Paivittaa shakkilaudan ruudukon
 	 */
 	public static void paivitaRuudut() {
 		
@@ -153,7 +156,7 @@ public class Shakki extends JFrame {
 	
 	/**
 	 * Palauttaa pelin tilan tallennusta varten
-	 * @return Merkkijono, jossa omilla riveillä ruuduissa sijaitsevat nappulat
+	 * @return Merkkijono, jossa omilla riveilla ruuduissa sijaitsevat nappulat
 	 */
 	public static String annaTila() {
 		String tila = "";
@@ -173,10 +176,50 @@ public class Shakki extends JFrame {
 		return tiedosto;
 	}
 	
+
 	/**
-	 * Main
-	 * @param args
+	 * @return Valittu nappula
 	 */
+	public static Nappula annaValittuNappula() {
+		return valittuNappula;
+	}
+
+	/**
+	 * @param valittuNappula Nappula, joka asetetaan valituksi
+	 */
+	public static void asetaValittuNappula(Nappula valittuNappula) {
+		Shakki.valittuNappula = valittuNappula;
+	}
+	
+	/**
+	 * @return Valittu ruutu
+	 */
+	public static Shakkiruutu annaValittuRuutu() {
+		return valittuRuutu;
+	}
+
+	/**
+	 * @param valittuRuutu Ruutu, joka asetetaan valituksi
+	 */
+	public static void asetaValittuRuutu(Shakkiruutu valittuRuutu) {
+		Shakki.valittuRuutu = valittuRuutu;
+	}
+	
+
+	/**
+	 * @return Kertoo onko vuoro pelaamatta
+	 */
+	public static boolean onkoVuoroPelaamatta() {
+		return vuoroPelaamatta;
+	}
+
+	/**
+	 * @param vuoroPelaamatta Onko vuoro pelaamatta
+	 */
+	public static void asetaVuoroPelaamatta(boolean vuoroPelaamatta) {
+		Shakki.vuoroPelaamatta = vuoroPelaamatta;
+	}
+
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Runnable() {
 			@Override
@@ -185,5 +228,7 @@ public class Shakki extends JFrame {
 			}
 		});
 	}
+
+
 
 }
