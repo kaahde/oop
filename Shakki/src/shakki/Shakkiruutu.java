@@ -22,11 +22,11 @@ public class Shakkiruutu extends JButton {
 	 * @param rivi Ruudun rivi
 	 * @param sarake Ruudun sarake
 	 */
-	public Shakkiruutu(int rivi, int sarake) {
+	public Shakkiruutu (int rivi, int sarake) {
 		this.rivi = rivi;
 		this.sarake = sarake;
 		
-		// Asettaa ruudun v�rin
+		// Asettaa ruudun varin
 		if (rivi % 2 == 1 && sarake % 2 == 0 || rivi % 2 == 0 && sarake % 2 == 1) {
 			vari = Color.decode("#ba9e64");
 			setBackground(vari);
@@ -68,9 +68,22 @@ public class Shakkiruutu extends JButton {
 						} 
 						// Klikataan valitun ruudun jalkeen toista ruutua
 						else if (valittu == false && Shakki.annaValittuRuutu() != null && Shakki.annaValittuNappula() != null) {
-							try {
-								// Nappulaa ei voi siirtaa toisen oman nappulan paalle
-								if (Shakki.annaValittuNappula().annaVari() != nappula.annaVari()) {
+							if (Shakki.annaValittuNappula().onkoSiirtoSallittu(Shakki.annaValittuRuutu(),	 annaRuutu())) {
+								try {
+									// Nappulaa ei voi siirtaa toisen oman nappulan paalle
+									if (Shakki.annaValittuNappula().annaVari() != nappula.annaVari()) {
+										Shakki.annaRuudut().get(r * 8 + s).asetaNappula(Shakki.annaValittuNappula());
+										Shakki.annaValittuRuutu().asetaNappula(null);
+										Shakki.annaValittuRuutu().setBackground(Shakki.annaValittuRuutu().vari);
+										Shakki.annaValittuRuutu().valittu = false;
+										
+										Shakki.asetaValittuNappula(null);
+										Shakki.asetaValittuRuutu(null);
+										
+										Shakki.paivitaRuudut();
+									}
+									// Jos kohteena on tyhja ruutu, siirtaminen onnistuu
+								} catch (NullPointerException e) {
 									Shakki.annaRuudut().get(r * 8 + s).asetaNappula(Shakki.annaValittuNappula());
 									Shakki.annaValittuRuutu().asetaNappula(null);
 									Shakki.annaValittuRuutu().setBackground(Shakki.annaValittuRuutu().vari);
@@ -81,17 +94,6 @@ public class Shakkiruutu extends JButton {
 									
 									Shakki.paivitaRuudut();
 								}
-								// Jos kohteena on tyhja ruutu, siirtaminen onnistuu
-							} catch (NullPointerException e) {
-								Shakki.annaRuudut().get(r * 8 + s).asetaNappula(Shakki.annaValittuNappula());
-								Shakki.annaValittuRuutu().asetaNappula(null);
-								Shakki.annaValittuRuutu().setBackground(Shakki.annaValittuRuutu().vari);
-								Shakki.annaValittuRuutu().valittu = false;
-								
-								Shakki.asetaValittuNappula(null);
-								Shakki.asetaValittuRuutu(null);
-								
-								Shakki.paivitaRuudut();
 							}
 						} 
 						

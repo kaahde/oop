@@ -6,73 +6,23 @@ import javax.swing.ImageIcon;
  * Shakkilaudan nappulaa mallintava luokka
  * @author Kadir
  */
-public class Nappula {
+public abstract class Nappula {
+	
 	protected Nappulat nimi;
 	protected Varit vari;
 	protected ImageIcon kuva;
+	protected int rivi;
+	protected int sarake;
 	
-	
+	/**
+	 * Konstruktori
+	 * @param vari Nappulan vari (Varit.MUSTA tai Varit.VALKOINEN)
+	 */
 	public Nappula(Varit vari) {
 		this.vari = vari;
 	}
 	
-	
-	/**
-	 * Konstruktori, kuvat osoitteesta https://commons.wikimedia.org/wiki/Category:PNG_chess_pieces/Standard_transparent
-	 * @param nappula Nappulan nimi
-	 * @param vari Nappulan vari
-	 */
-//	public Nappula(Nappulat nappula, Varit vari) {
-//		if (nappula == Nappulat.SOTILAS && vari == Varit.MUSTA) {
-//			nimi = Nappulat.SOTILAS;
-//			this.vari = Varit.MUSTA;
-//			kuva = new ImageIcon("res/kuvat/sotilas_m.png");
-//		} else if (nappula == Nappulat.SOTILAS && vari == Varit.VALKOINEN) {
-//			nimi = Nappulat.SOTILAS;
-//			this.vari = Varit.VALKOINEN;
-//			kuva = new ImageIcon("res/kuvat/sotilas_v.png");
-//		} else if (nappula == Nappulat.TORNI && vari == Varit.MUSTA) {
-//			nimi = Nappulat.TORNI;
-//			this.vari = Varit.MUSTA;
-//			kuva = new ImageIcon("res/kuvat/torni_m.png");
-//		} else if (nappula == Nappulat.TORNI && vari == Varit.VALKOINEN) {
-//			nimi = Nappulat.TORNI;
-//			this.vari = Varit.VALKOINEN;
-//			kuva = new ImageIcon("res/kuvat/torni_v.png");
-//		} else if (nappula == Nappulat.RATSU && vari == Varit.MUSTA) {
-//			nimi = Nappulat.RATSU;
-//			this.vari = Varit.MUSTA;
-//			kuva = new ImageIcon("res/kuvat/ratsu_m.png");
-//		} else if (nappula == Nappulat.RATSU && vari == Varit.VALKOINEN) {
-//			nimi = Nappulat.RATSU;
-//			this.vari = Varit.VALKOINEN;
-//			kuva = new ImageIcon("res/kuvat/ratsu_v.png");
-//		} else if (nappula == Nappulat.LAHETTI && vari == Varit.MUSTA) {
-//			nimi = Nappulat.LAHETTI;
-//			this.vari = Varit.MUSTA;
-//			kuva = new ImageIcon("res/kuvat/lahetti_m.png");
-//		} else if (nappula == Nappulat.LAHETTI && vari == Varit.VALKOINEN) {
-//			nimi = Nappulat.LAHETTI;
-//			this.vari = Varit.VALKOINEN;
-//			kuva = new ImageIcon("res/kuvat/lahetti_v.png");
-//		} else if (nappula == Nappulat.KUNINGATAR && vari == Varit.MUSTA) {
-//			nimi = Nappulat.KUNINGATAR;
-//			this.vari = Varit.MUSTA;
-//			kuva = new ImageIcon("res/kuvat/kuningatar_m.png");
-//		} else if (nappula == Nappulat.KUNINGATAR && vari == Varit.VALKOINEN) {
-//			nimi = Nappulat.KUNINGATAR;
-//			this.vari = Varit.VALKOINEN;
-//			kuva = new ImageIcon("res/kuvat/kuningatar_v.png");
-//		} else if (nappula == Nappulat.KUNINGAS && vari == Varit.MUSTA) {
-//			nimi = Nappulat.KUNINGAS;
-//			this.vari = Varit.MUSTA;
-//			kuva = new ImageIcon("res/kuvat/kuningas_m.png");
-//		} else if (nappula == Nappulat.KUNINGAS && vari == Varit.VALKOINEN) {
-//			nimi = Nappulat.KUNINGAS;
-//			this.vari = Varit.VALKOINEN;
-//			kuva = new ImageIcon("res/kuvat/kuningas_v.png");
-//		} 
-//	}
+
 	
 	public Nappulat annaNimi() {
 		return nimi;
@@ -85,4 +35,6 @@ public class Nappula {
 	public ImageIcon annaKuva() {
 		return kuva;
 	}
+	
+	public abstract boolean onkoSiirtoSallittu(Shakkiruutu alku, Shakkiruutu loppu);
 }

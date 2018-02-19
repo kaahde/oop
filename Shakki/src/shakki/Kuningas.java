@@ -15,4 +15,10 @@ public class Kuningas extends Nappula {
 			kuva = new ImageIcon("res/kuvat/kuningas_v.png");
 		}
 	}
+
+	@Override
+	public boolean onkoSiirtoSallittu(Shakkiruutu alku, Shakkiruutu loppu) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

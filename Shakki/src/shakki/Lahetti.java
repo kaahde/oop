@@ -15,4 +15,10 @@ public class Lahetti extends Nappula {
 			kuva = new ImageIcon("res/kuvat/lahetti_v.png");
 		}
 	}
+
+	@Override
+	public boolean onkoSiirtoSallittu(Shakkiruutu alku, Shakkiruutu loppu) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

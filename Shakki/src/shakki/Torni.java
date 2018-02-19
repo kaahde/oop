@@ -15,4 +15,10 @@ public class Torni extends Nappula {
 			kuva = new ImageIcon("res/kuvat/torni_v.png");
 		}
 	}
+
+	@Override
+	public boolean onkoSiirtoSallittu(Shakkiruutu alku, Shakkiruutu loppu) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

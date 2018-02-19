@@ -15,4 +15,10 @@ public class Kuningatar extends Nappula {
 			kuva = new ImageIcon("res/kuvat/kuningatar_v.png");
 		}
 	}
+
+	@Override
+	public boolean onkoSiirtoSallittu(Shakkiruutu alku, Shakkiruutu loppu) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
