@@ -30,30 +30,32 @@ public class Lataa extends JMenuItem {
 							Shakki.annaRuudut().get(i).asetaNappula(null);
 						} else {
 							
+							Shakkiruutu ruutu = Shakki.annaRuudut().get(i);
+							
 							if (rivi.equals("SOTILAS;MUSTA")) {
-								Shakki.annaRuudut().get(i).asetaNappula(new Nappula(Nappulat.SOTILAS, Varit.MUSTA));
+								ruutu.asetaNappula(new Sotilas(Varit.MUSTA));
 							} else if (rivi.equals("SOTILAS;VALKOINEN")) {
-								Shakki.annaRuudut().get(i).asetaNappula(new Nappula(Nappulat.SOTILAS, Varit.VALKOINEN));
+								ruutu.asetaNappula(new Sotilas(Varit.VALKOINEN));
 							} else if (rivi.equals("TORNI;MUSTA")) {
-								Shakki.annaRuudut().get(i).asetaNappula(new Nappula(Nappulat.TORNI, Varit.MUSTA));
+								ruutu.asetaNappula(new Torni(Varit.MUSTA));
 							} else if (rivi.equals("TORNI;VALKOINEN")) {
-								Shakki.annaRuudut().get(i).asetaNappula(new Nappula(Nappulat.TORNI, Varit.VALKOINEN));
+								ruutu.asetaNappula(new Torni(Varit.VALKOINEN));
 							} else if (rivi.equals("RATSU;MUSTA")) {
-								Shakki.annaRuudut().get(i).asetaNappula(new Nappula(Nappulat.RATSU, Varit.MUSTA));
+								ruutu.asetaNappula(new Ratsu(Varit.MUSTA));
 							} else if (rivi.equals("RATSU;VALKOINEN")) {
-								Shakki.annaRuudut().get(i).asetaNappula(new Nappula(Nappulat.RATSU, Varit.VALKOINEN));
+								ruutu.asetaNappula(new Ratsu(Varit.VALKOINEN));
 							} else if (rivi.equals("LAHETTI;MUSTA")) {
-								Shakki.annaRuudut().get(i).asetaNappula(new Nappula(Nappulat.LAHETTI, Varit.MUSTA));
+								ruutu.asetaNappula(new Lahetti(Varit.MUSTA));
 							} else if (rivi.equals("LAHETTI;VALKOINEN")) {
-								Shakki.annaRuudut().get(i).asetaNappula(new Nappula(Nappulat.LAHETTI, Varit.VALKOINEN));
+								ruutu.asetaNappula(new Lahetti(Varit.VALKOINEN));
 							} else if (rivi.equals("KUNINGATAR;MUSTA")) {
-								Shakki.annaRuudut().get(i).asetaNappula(new Nappula(Nappulat.KUNINGATAR, Varit.MUSTA));
+								ruutu.asetaNappula(new Kuningatar(Varit.MUSTA));
 							} else if (rivi.equals("KUNINGATAR;VALKOINEN")) {
-								Shakki.annaRuudut().get(i).asetaNappula(new Nappula(Nappulat.KUNINGATAR, Varit.VALKOINEN));
+								ruutu.asetaNappula(new Kuningatar(Varit.VALKOINEN));
 							} else if (rivi.equals("KUNINGAS;MUSTA")) {
-								Shakki.annaRuudut().get(i).asetaNappula(new Nappula(Nappulat.KUNINGAS, Varit.MUSTA));
+								ruutu.asetaNappula(new Kuningas(Varit.MUSTA));
 							} else if (rivi.equals("KUNINGAS;VALKOINEN")) {
-								Shakki.annaRuudut().get(i).asetaNappula(new Nappula(Nappulat.KUNINGAS, Varit.VALKOINEN));
+								ruutu.asetaNappula(new Kuningas(Varit.VALKOINEN));
 							}
 							
 						}

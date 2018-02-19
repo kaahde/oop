@@ -26,29 +26,29 @@ public class UusiPeli extends JMenuItem {
 						Shakkiruutu ruutu = Shakki.annaRuudut().get(i*8 + j);
 						
 						if (i == 1) {
-							ruutu.asetaNappula(new Nappula(Nappulat.SOTILAS, Varit.MUSTA));
+							ruutu.asetaNappula(new Sotilas(Varit.MUSTA));
 						} else if (i == 6) {
-							ruutu.asetaNappula(new Nappula(Nappulat.SOTILAS, Varit.VALKOINEN));
+							ruutu.asetaNappula(new Sotilas(Varit.VALKOINEN));
 						} else if (i == 0 && j == 0 || i == 0 && j == 7) {
-							ruutu.asetaNappula(new Nappula(Nappulat.TORNI, Varit.MUSTA));
+							ruutu.asetaNappula(new Torni(Varit.MUSTA));
 						} else if (i == 7 && j == 0 || i == 7 && j == 7) {
-							ruutu.asetaNappula(new Nappula(Nappulat.TORNI, Varit.VALKOINEN));
+							ruutu.asetaNappula(new Torni(Varit.VALKOINEN));
 						} else if (i == 0 && j == 1 || i == 0 && j == 6) {
-							ruutu.asetaNappula(new Nappula(Nappulat.RATSU, Varit.MUSTA));
+							ruutu.asetaNappula(new Ratsu(Varit.MUSTA));
 						} else if (i == 7 && j == 1 || i == 7 && j == 6) {
-							ruutu.asetaNappula(new Nappula(Nappulat.RATSU, Varit.VALKOINEN));
+							ruutu.asetaNappula(new Ratsu(Varit.VALKOINEN));
 						} else if (i == 0 && j == 2 || i == 0 && j == 5) {
-							ruutu.asetaNappula(new Nappula(Nappulat.LAHETTI, Varit.MUSTA));
+							ruutu.asetaNappula(new Lahetti(Varit.MUSTA));
 						} else if (i == 7 && j == 2 || i == 7 && j == 5) {
-							ruutu.asetaNappula(new Nappula(Nappulat.LAHETTI, Varit.VALKOINEN));
+							ruutu.asetaNappula(new Lahetti(Varit.VALKOINEN));
 						} else if (i == 0 && j == 4) {
-							ruutu.asetaNappula(new Nappula(Nappulat.KUNINGATAR, Varit.MUSTA));
+							ruutu.asetaNappula(new Kuningatar(Varit.MUSTA));
 						} else if (i == 7 && j == 3) {
-							ruutu.asetaNappula(new Nappula(Nappulat.KUNINGATAR, Varit.VALKOINEN));
+							ruutu.asetaNappula(new Kuningatar(Varit.VALKOINEN));
 						} else if (i == 0 && j == 3) {
-							ruutu.asetaNappula(new Nappula(Nappulat.KUNINGAS, Varit.MUSTA));
+							ruutu.asetaNappula(new Kuningas(Varit.MUSTA));
 						} else if (i == 7 && j == 4) {
-							ruutu.asetaNappula(new Nappula(Nappulat.KUNINGAS, Varit.VALKOINEN));
+							ruutu.asetaNappula(new Kuningas(Varit.VALKOINEN));
 						} else {
 							ruutu.asetaNappula(null);
 						}
