@@ -106,7 +106,7 @@ public class Shakki extends JFrame {
 					ruutu.asetaNappula(null);
 				}
 				
-				// Lis�� nappuloiden kuvat ruudukkoon
+				// Lisaa nappuloiden kuvat ruudukkoon
 				try {
 					ruutu.setIcon(ruutu.annaNappula().annaKuva());
 				} catch (Exception e) {
