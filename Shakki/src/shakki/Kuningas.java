@@ -26,18 +26,9 @@ public class Kuningas extends Nappula {
 
 	@Override
 	public boolean onkoSiirtoSallittu(Shakkiruutu alku, Shakkiruutu loppu) {
-		
-		// Kuningas voi liikkua yhden ruudun mihin tahansa suuntaan	 
-		if (loppu.annaSarake() == alku.annaSarake() && loppu.annaRivi() >= alku.annaRivi() - 1 && loppu.annaRivi() < alku.annaRivi())  {
-			return true;
-		} else if (loppu.annaSarake() == alku.annaSarake() && loppu.annaRivi() <= alku.annaRivi() + 1 && loppu.annaRivi() > alku.annaRivi())  {
-			return true;
-		} else if (loppu.annaSarake() >= alku.annaSarake() - 1 && loppu.annaRivi() == alku.annaRivi() && loppu.annaSarake() < alku.annaSarake())  {
-			return true;
-		} else if (loppu.annaSarake() <= alku.annaSarake() + 1 && loppu.annaRivi() == alku.annaRivi() && loppu.annaSarake() > alku.annaSarake())  {
+		if (Math.abs(loppu.annaSarake()-alku.annaSarake()) <= 1 && Math.abs(loppu.annaRivi()-alku.annaRivi()) <= 1)  {
 			return true;
 		}
 		return false;
-		
 	}
 }
