@@ -17,29 +17,29 @@ SOTILAS;MUSTA
 
 
 
-
-
-
-
-
-
-SOTILAS;MUSTA
-
-
-
-
-SOTILAS;MUSTA
-
-
-
-
 SOTILAS;VALKOINEN
+
+
+
+
+
+
+
+
+
+
+SOTILAS;MUSTA
+
+
+
+
+
 
 TORNI;VALKOINEN
 
 
 
-
+SOTILAS;MUSTA
 
 
 
