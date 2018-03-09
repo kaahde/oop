@@ -52,7 +52,7 @@ public class Shakkiruutu extends JButton {
 					public void actionPerformed(ActionEvent arg0) {
 						// Valitaan uusi ruutu
 						if (Shakki.annaValittuRuutu() == null && Shakki.annaValittuNappula() == null) {		
-							if (nappula != null) {	
+							if (nappula != null && Shakki.onkoValkoisenVuoro() && nappula.annaVari() == Varit.VALKOINEN || !Shakki.onkoValkoisenVuoro() && nappula.annaVari() == Varit.MUSTA) {	
 								valittu = true;
 								Shakki.asetaValittuRuutu(annaRuutu());
 								Shakki.asetaValittuNappula(nappula);
@@ -80,6 +80,7 @@ public class Shakkiruutu extends JButton {
 										Shakki.asetaValittuNappula(null);
 										Shakki.asetaValittuRuutu(null);
 										
+										Shakki.paataVuoro();
 										Shakki.paivitaRuudut();
 									}
 									// Jos kohteena on tyhja ruutu, siirtaminen onnistuu
@@ -92,6 +93,7 @@ public class Shakkiruutu extends JButton {
 									Shakki.asetaValittuNappula(null);
 									Shakki.asetaValittuRuutu(null);
 									
+									Shakki.paataVuoro();
 									Shakki.paivitaRuudut();
 								}
 							}

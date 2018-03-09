@@ -1,6 +1,8 @@
 package shakki;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+
 import java.awt.*;
 import java.io.File;
 import java.util.ArrayList;
@@ -12,39 +14,29 @@ import java.util.ArrayList;
 public class Shakki extends JFrame {
 
 	private Shakkiruutu ruutu;
+	private static Infolaatikko vuoroinfo;
 	
 	private static ArrayList<Shakkiruutu> ruudut = new ArrayList<Shakkiruutu>();
 	private static File tiedosto = new File("res/Tallennus.txt");
 	private static Nappula valittuNappula = null;
 	private static Shakkiruutu valittuRuutu = null;
 	private static boolean vuoroPelaamatta = true;
+	private static boolean valkoisenVuoro = true;
 	
 	
 	/**
 	 * Konstruktori
 	 */
 	public Shakki() {
-		luoUI();
+		luoPelilauta();
 		
 		setTitle("Shakki");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(540, 540);
+		pack();
 		setLocationRelativeTo(null);
 		setResizable(false);
 		
-		JMenuBar valikko = new JMenuBar();
-		setJMenuBar(valikko);
-		
-		JMenu peli =  new JMenu("Peli");
-		valikko.add(peli);
-		
-		
-		Tallenna tallennus = new Tallenna("Tallenna peli");
-		Lataa lataus = new Lataa("Lataa vanha peli");
-		UusiPeli uusi = new UusiPeli("Uusi peli");
-		peli.add(uusi);
-		peli.add(tallennus);
-		peli.add(lataus);
+		luoValikko();
 		
 	}
 	
@@ -60,11 +52,26 @@ public class Shakki extends JFrame {
 	/**
 	 * Luo kayttoliittyman ja alustaa shakkilaudan
 	 */
-	public void luoUI() {
+	public void luoPelilauta() {
 		
+		// Luo JPanel-olion, johon pelilauta yms. sisaltyy
 		JPanel paneeli = new JPanel();
 		getContentPane().add(paneeli);
-		paneeli.setLayout(new GridLayout(8, 8));	
+		paneeli.setLayout(new BorderLayout());
+		
+		// Luo JPanel-olion pelilaudalle 
+		JPanel pelilauta = new JPanel();
+		pelilauta.setLayout(new GridLayout(8, 8));
+		paneeli.add(pelilauta, BorderLayout.LINE_START);
+		
+		//Luo JPanel-olion muille asioille
+		JPanel muutTiedot = new JPanel();
+		muutTiedot.setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
+		paneeli.add(muutTiedot, BorderLayout.LINE_END);
+		
+		vuoroinfo = new Infolaatikko("Valkoisen vuoro");
+		muutTiedot.add(vuoroinfo);
+		
 		
 		// Luo shakkilaudan ruudukon
 		for (int i = 0; i < 8; i++) {
@@ -117,12 +124,29 @@ public class Shakki extends JFrame {
 				
 				// Muuttaa ruudun taustavarin nakyvaksi ja lisaa ruudun paneeliin
 				ruutu.setOpaque(true);
-				paneeli.add(ruutu);
+				pelilauta.add(ruutu);
 			}
 		}
 
 	}
 	
+	/**
+	 * Luo käyttöliittymän valikon
+	 */
+	public void luoValikko() {
+		JMenuBar valikko = new JMenuBar();
+		setJMenuBar(valikko);
+		
+		JMenu peli =  new JMenu("Peli");
+		valikko.add(peli);
+		
+		Tallenna tallennus = new Tallenna("Tallenna peli");
+		Lataa lataus = new Lataa("Lataa vanha peli");
+		UusiPeli uusi = new UusiPeli("Uusi peli");
+		peli.add(uusi);
+		peli.add(tallennus);
+		peli.add(lataus);
+	}
 	
 	/**
 	 * Paivittaa shakkilaudan ruudukon
@@ -169,8 +193,28 @@ public class Shakki extends JFrame {
 		return tila;
 	}
 	
+	/**
+	 * Palauttaa tiedoston, johon pelin tila tallennetaan
+	 * @return Tallennustiedosto
+	 */
 	public static File annaTiedosto() {
 		return tiedosto;
+	}
+	
+	/**
+	 * Kertoo onko valkoisen pelaajan vuoro tehda siirto
+	 * @return true, jos valkoisen vuoro; false, jos mustan vuoro
+	 */
+	public static boolean onkoValkoisenVuoro() {
+		return valkoisenVuoro;
+	}
+	
+	/**
+	 * Vaihtaa vuorossa olevan pelaajan
+	 */
+	public static void paataVuoro() {
+		valkoisenVuoro = !valkoisenVuoro;
+		vuoroinfo.paivita();
 	}
 	
 
