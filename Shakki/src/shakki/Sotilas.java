@@ -35,9 +35,15 @@ public class Sotilas extends Nappula {
 				}
 			// Muilla siirroilla voi liikuttaa yhden ruudun eteenpain
 			} else if (loppu.annaSarake() == alku.annaSarake() && loppu.annaRivi() >= alku.annaRivi() - 1 && loppu.annaRivi() < alku.annaRivi() && loppu.annaNappula() == null)  {
+				if (loppu.annaRivi() == 0) {
+					paadyssa(this.vari, loppu.annaSarake(), loppu.annaRivi());
+				}
 				return true;
 			// Syodessa voi liikkuta yhden ruudun eteenpain viistoon
 			} else if ((loppu.annaSarake() == alku.annaSarake() + 1  || loppu.annaSarake() == alku.annaSarake() - 1) && loppu.annaRivi() >= alku.annaRivi() - 1 && loppu.annaRivi() < alku.annaRivi() && loppu.annaNappula() != null)  {
+				if (loppu.annaRivi() == 0) {
+					paadyssa(this.vari, loppu.annaSarake(), loppu.annaRivi());
+				}
 				return true;
 			}
 		} else if (this.vari == Varit.MUSTA) {
@@ -49,9 +55,15 @@ public class Sotilas extends Nappula {
 				}
 			// Muilla siirroilla voi liikuttaa yhden ruudun eteenpain
 			} else if (loppu.annaSarake() == alku.annaSarake() && loppu.annaRivi() <= alku.annaRivi() + 1 && loppu.annaRivi() > alku.annaRivi() && loppu.annaNappula() == null)  {
+				if (loppu.annaRivi() == 7) {
+					paadyssa(this.vari, loppu.annaSarake(), loppu.annaRivi());
+				}
 				return true;
 			// Syodessa voi liikkuta yhden ruudun eteenpain viistoon
 			} else if ((loppu.annaSarake() == alku.annaSarake() + 1  || loppu.annaSarake() == alku.annaSarake() - 1) && loppu.annaRivi() <= alku.annaRivi() + 1 && loppu.annaRivi() > alku.annaRivi() && loppu.annaNappula() != null)  {
+				if (loppu.annaRivi() == 7) {
+					paadyssa(this.vari, loppu.annaSarake(), loppu.annaRivi());
+				}
 				return true;
 			}
 		}
@@ -59,5 +71,14 @@ public class Sotilas extends Nappula {
 		return false;
 	}
 	
+	/**
+	 * Valittaa eteenpain tiedon sotilaaan paasemisesta laudan paatyyn
+	 * @param v Pelaajan nappuloiden vari
+	 * @param sarake Sotilaan sarake
+	 * @param rivi Sotilaan rivi
+	 */
+	public void paadyssa(Varit v, int sarake, int rivi) {
+		Shakki.naytaPromootioIkkuna(v, sarake, rivi);
+	}
 	
 }

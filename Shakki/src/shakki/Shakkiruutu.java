@@ -36,7 +36,7 @@ public class Shakkiruutu extends JButton {
 		}
 		
 		// Ruudun ulkonakoon vaikuttavia asioita
-		setSize(new Dimension(60, 60));
+		setPreferredSize(new Dimension(70, 70));
 		setBorderPainted(false);
 		setFocusPainted(false);
 		setContentAreaFilled(false);

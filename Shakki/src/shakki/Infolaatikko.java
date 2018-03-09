@@ -1,8 +1,10 @@
 package shakki;
 
 import java.awt.Dimension;
+import java.awt.Font;
 
 import javax.swing.JTextArea;
+import javax.swing.text.StyleConstants.FontConstants;
 
 public class Infolaatikko extends JTextArea {
 

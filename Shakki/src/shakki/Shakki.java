@@ -15,12 +15,12 @@ public class Shakki extends JFrame {
 
 	private Shakkiruutu ruutu;
 	private static Infolaatikko vuoroinfo;
+	private static SotilaanPromootio promootio;
 	
 	private static ArrayList<Shakkiruutu> ruudut = new ArrayList<Shakkiruutu>();
 	private static File tiedosto = new File("res/Tallennus.txt");
 	private static Nappula valittuNappula = null;
 	private static Shakkiruutu valittuRuutu = null;
-	private static boolean vuoroPelaamatta = true;
 	private static boolean valkoisenVuoro = true;
 	
 	
@@ -57,21 +57,29 @@ public class Shakki extends JFrame {
 		// Luo JPanel-olion, johon pelilauta yms. sisaltyy
 		JPanel paneeli = new JPanel();
 		getContentPane().add(paneeli);
+		paneeli.setBorder(BorderFactory.createEmptyBorder(6, 6, 6, 6));
 		paneeli.setLayout(new BorderLayout());
 		
 		// Luo JPanel-olion pelilaudalle 
 		JPanel pelilauta = new JPanel();
 		pelilauta.setLayout(new GridLayout(8, 8));
+		pelilauta.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));;
+		pelilauta.setBackground(Color.decode("#6d6856"));
 		paneeli.add(pelilauta, BorderLayout.LINE_START);
 		
-		//Luo JPanel-olion muille asioille
+		// Luo JPanel-olion muille asioille
 		JPanel muutTiedot = new JPanel();
 		muutTiedot.setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
+		muutTiedot.setLayout(new BoxLayout(muutTiedot, BoxLayout.Y_AXIS));
 		paneeli.add(muutTiedot, BorderLayout.LINE_END);
 		
+		// Luo tekstikentan, jossa nakyy kumman vuoro pelata
 		vuoroinfo = new Infolaatikko("Valkoisen vuoro");
 		muutTiedot.add(vuoroinfo);
 		
+		promootio = new SotilaanPromootio();
+		promootio.setVisible(false);
+		muutTiedot.add(promootio);
 		
 		// Luo shakkilaudan ruudukon
 		for (int i = 0; i < 8; i++) {
@@ -216,7 +224,6 @@ public class Shakki extends JFrame {
 		valkoisenVuoro = !valkoisenVuoro;
 		vuoroinfo.paivita();
 	}
-	
 
 	/**
 	 * @return Valittu nappula
@@ -246,19 +253,24 @@ public class Shakki extends JFrame {
 		Shakki.valittuRuutu = valittuRuutu;
 	}
 	
-
+	
 	/**
-	 * @return Kertoo onko vuoro pelaamatta
+	 * Nayttaa sotilaan promootioikkunan
+	 * @param vari
+	 * @param sarake
+	 * @param rivi
 	 */
-	public static boolean onkoVuoroPelaamatta() {
-		return vuoroPelaamatta;
+	public static void naytaPromootioIkkuna(Varit vari, int sarake, int rivi) {
+		promootio.paivitaTiedot(vari, sarake, rivi);
+		promootio.setVisible(true);
+		
 	}
-
+	
 	/**
-	 * @param vuoroPelaamatta Onko vuoro pelaamatta
+	 * Piilottaa sotilaan promootioikkunan
 	 */
-	public static void asetaVuoroPelaamatta(boolean vuoroPelaamatta) {
-		Shakki.vuoroPelaamatta = vuoroPelaamatta;
+	public static void piilotaPromootioIkkuna() {
+		promootio.setVisible(false);
 	}
 
 	public static void main(String[] args) {
@@ -269,7 +281,5 @@ public class Shakki extends JFrame {
 			}
 		});
 	}
-
-
 
 }
