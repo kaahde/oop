@@ -61,6 +61,18 @@ public class Lataa extends JMenuItem {
 						}
 					}
 					
+					String rivi = lukija.readLine();
+					
+					 if (rivi.equals("true")) {
+						if (!Shakki.onkoValkoisenVuoro()) {
+							Shakki.paataVuoro();
+						}
+					} else if (rivi.equals("false")) {
+						if (Shakki.onkoValkoisenVuoro()) {
+							Shakki.paataVuoro();
+						}
+					}
+					
 					lukija.close();
 					Shakki.paivitaRuudut();
 				} catch ( IOException e) {

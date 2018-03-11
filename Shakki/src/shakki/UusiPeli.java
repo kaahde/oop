@@ -55,6 +55,9 @@ public class UusiPeli extends JMenuItem {
 					}
 				}
 				
+				if (!Shakki.onkoValkoisenVuoro()) {
+					Shakki.paataVuoro();
+				}
 				Shakki.paivitaRuudut();
 					
 			}

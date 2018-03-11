@@ -165,20 +165,12 @@ public class Shakki extends JFrame {
 			for (int j = 0; j < 8; j++) {
 				Shakkiruutu r = ruudut.get(i * 8 + j);
 				
-
-				if (r.annaNappula() != null) {
-					try {
-						r.setIcon(r.annaNappula().annaKuva());
-					} catch (Exception e) {
-						r.setIcon(null);
-					}
-				} else {
-					try {
-						r.setIcon(null);
-					} catch (Exception e) {
-						r.setIcon(null);
-					}
+				try {
+					r.setIcon(r.annaNappula().annaKuva());
+				} catch (NullPointerException e) {
+					r.setIcon(null);
 				}
+				
 			}
 		}
 	}
@@ -197,6 +189,7 @@ public class Shakki extends JFrame {
 				tila += "\n";
 			}
 		}
+		tila += onkoValkoisenVuoro();
 		
 		return tila;
 	}
