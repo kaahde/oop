@@ -31,7 +31,7 @@ public class Ratsu extends Nappula {
 		if ((loppu.annaSarake() == alku.annaSarake() + 2 && (loppu.annaRivi() == alku.annaRivi() + 1 || loppu.annaRivi() == alku.annaRivi() - 1)) || 
 				(loppu.annaSarake() == alku.annaSarake() - 2 && (loppu.annaRivi() == alku.annaRivi() + 1 || loppu.annaRivi() == alku.annaRivi() - 1)) || 
 				(loppu.annaRivi() == alku.annaRivi() + 2 && (loppu.annaSarake() == alku.annaSarake() + 1 || loppu.annaSarake() == alku.annaSarake() - 1)) ||  
-				(loppu.annaRivi() == alku.annaRivi() - 2 && (loppu.annaSarake() == alku.annaSarake() + 1 || loppu.annaSarake() == alku.annaSarake() - 1)) && loppu.annaNappula() == null) {
+				(loppu.annaRivi() == alku.annaRivi() - 2 && (loppu.annaSarake() == alku.annaSarake() + 1 || loppu.annaSarake() == alku.annaSarake() - 1))) {
 			
 			return true;
 		}
