@@ -26,7 +26,6 @@ public class Ratsu extends Nappula {
 
 	@Override
 	public boolean onkoSiirtoSallittu(Shakkiruutu alku, Shakkiruutu loppu) {
-		// TODO Auto-generated method stub
 		
 		if ((loppu.annaSarake() == alku.annaSarake() + 2 && (loppu.annaRivi() == alku.annaRivi() + 1 || loppu.annaRivi() == alku.annaRivi() - 1)) || 
 				(loppu.annaSarake() == alku.annaSarake() - 2 && (loppu.annaRivi() == alku.annaRivi() + 1 || loppu.annaRivi() == alku.annaRivi() - 1)) || 
