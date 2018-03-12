@@ -217,6 +217,13 @@ public class Shakki extends JFrame {
 		valkoisenVuoro = !valkoisenVuoro;
 		vuoroinfo.paivita();
 	}
+	
+	/**
+	 * Voittaa pelin
+	 */
+	public static void voitaPeli() {
+		vuoroinfo.voitaPeli();
+	}
 
 	/**
 	 * @return Valittu nappula

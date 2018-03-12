@@ -22,4 +22,12 @@ public class Infolaatikko extends JTextArea {
 			setText("Mustan vuoro");
 		}
 	}
+	
+	public void voitaPeli() {
+		if (Shakki.onkoValkoisenVuoro()) {
+			setText("Valkoinen voitti pelin!");
+		} else {
+			setText("Musta voitti pelin!");
+		}
+	}
 }

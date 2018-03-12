@@ -70,6 +70,22 @@ public class Shakkiruutu extends JButton {
 						else if (valittu == false && Shakki.annaValittuRuutu() != null && Shakki.annaValittuNappula() != null) {
 							if (Shakki.annaValittuNappula().onkoSiirtoSallittu(Shakki.annaValittuRuutu(),	 annaRuutu())) {
 								try {
+									
+									
+									// Jos kohteessa kuningas, niin voittaa pelin
+									if(nappula instanceof Kuningas && Shakki.annaValittuNappula().annaVari() != nappula.annaVari()) {
+										Shakki.annaRuudut().get(r * 8 + s).asetaNappula(Shakki.annaValittuNappula());
+										Shakki.annaValittuRuutu().asetaNappula(null);
+										Shakki.annaValittuRuutu().setBackground(Shakki.annaValittuRuutu().vari);
+										Shakki.annaValittuRuutu().valittu = false;
+										
+										Shakki.asetaValittuNappula(null);
+										Shakki.asetaValittuRuutu(null);
+										
+										Shakki.voitaPeli();
+										Shakki.paivitaRuudut();
+									}
+									
 									// Nappulaa ei voi siirtaa toisen oman nappulan paalle
 									if (Shakki.annaValittuNappula().annaVari() != nappula.annaVari()) {
 										Shakki.annaRuudut().get(r * 8 + s).asetaNappula(Shakki.annaValittuNappula());
