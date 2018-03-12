@@ -73,6 +73,7 @@ public class Shakkiruutu extends JButton {
 									// Nappulaa ei voi siirtaa toisen oman nappulan paalle
 									if (Shakki.annaValittuNappula().annaVari() != nappula.annaVari()) {
 										Shakki.annaRuudut().get(r * 8 + s).asetaNappula(Shakki.annaValittuNappula());
+										Shakki.annaValittuNappula().ekaSiirtoOhi();
 										Shakki.annaValittuRuutu().asetaNappula(null);
 										Shakki.annaValittuRuutu().setBackground(Shakki.annaValittuRuutu().vari);
 										Shakki.annaValittuRuutu().valittu = false;
@@ -80,12 +81,14 @@ public class Shakkiruutu extends JButton {
 										Shakki.asetaValittuNappula(null);
 										Shakki.asetaValittuRuutu(null);
 										
+										
 										Shakki.paataVuoro();
 										Shakki.paivitaRuudut();
 									}
-									// Jos kohteena on tyhja ruutu, siirtaminen onnistuu
+								// Jos kohteena on tyhja ruutu, siirtaminen onnistuu
 								} catch (NullPointerException e) {
 									Shakki.annaRuudut().get(r * 8 + s).asetaNappula(Shakki.annaValittuNappula());
+									Shakki.annaValittuNappula().ekaSiirtoOhi();
 									Shakki.annaValittuRuutu().asetaNappula(null);
 									Shakki.annaValittuRuutu().setBackground(Shakki.annaValittuRuutu().vari);
 									Shakki.annaValittuRuutu().valittu = false;

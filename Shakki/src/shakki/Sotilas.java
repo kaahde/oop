@@ -28,7 +28,7 @@ public class Sotilas extends Nappula {
 		
 		if (this.vari == Varit.VALKOINEN) {
 			// Ensimmaisella siirrolla voi liikuttaa 1 tai 2 ruutua eteenpain
-			if (loppu.annaSarake() == alku.annaSarake() && alku.annaRivi() == 6 && loppu.annaRivi() >= alku.annaRivi() - 2 && loppu.annaRivi() < alku.annaRivi() && loppu.annaNappula() == null) {
+			if (loppu.annaSarake() == alku.annaSarake() && ekaSiirto && loppu.annaRivi() >= alku.annaRivi() - 2 && loppu.annaRivi() < alku.annaRivi() && loppu.annaNappula() == null) {
 				// Ei voi hypata nappuloiden yli
 				if (Shakki.annaRuudut().get((alku.annaRivi() - 1) * 8 + alku.annaSarake()).annaNappula() == null) {
 					return true;
@@ -48,7 +48,7 @@ public class Sotilas extends Nappula {
 			}
 		} else if (this.vari == Varit.MUSTA) {
 			// Ensimmaisella siirrolla voi liikuttaa 1 tai 2 ruutua eteenpain
-			if (loppu.annaSarake() == alku.annaSarake() && alku.annaRivi() == 1 && loppu.annaRivi() <= alku.annaRivi() + 2 && loppu.annaRivi() > alku.annaRivi() && loppu.annaNappula() == null) {
+			if (loppu.annaSarake() == alku.annaSarake() && ekaSiirto && loppu.annaRivi() <= alku.annaRivi() + 2 && loppu.annaRivi() > alku.annaRivi() && loppu.annaNappula() == null) {
 				// Ei voi hypata nappuloiden yli
 				if (Shakki.annaRuudut().get((alku.annaRivi() + 1) * 8 + alku.annaSarake()).annaNappula() == null) {
 					return true;

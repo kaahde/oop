@@ -22,42 +22,49 @@ public class Lataa extends JMenuItem {
 				try {
 					BufferedReader lukija = new BufferedReader(new FileReader(Shakki.annaTiedosto()));
 					
-					for (int i = 0; i < Shakki.annaRuudut().size(); i++) {
+					for (int i = 0; i < 2 * Shakki.annaRuudut().size(); i++) {
 						
 						String rivi = lukija.readLine();
 						
-						if (rivi.equals("")) {
-							Shakki.annaRuudut().get(i).asetaNappula(null);
-						} else {
-							
-							Shakkiruutu ruutu = Shakki.annaRuudut().get(i);
-							
-							if (rivi.equals("SOTILAS;MUSTA")) {
-								ruutu.asetaNappula(new Sotilas(Varit.MUSTA));
-							} else if (rivi.equals("SOTILAS;VALKOINEN")) {
-								ruutu.asetaNappula(new Sotilas(Varit.VALKOINEN));
-							} else if (rivi.equals("TORNI;MUSTA")) {
-								ruutu.asetaNappula(new Torni(Varit.MUSTA));
-							} else if (rivi.equals("TORNI;VALKOINEN")) {
-								ruutu.asetaNappula(new Torni(Varit.VALKOINEN));
-							} else if (rivi.equals("RATSU;MUSTA")) {
-								ruutu.asetaNappula(new Ratsu(Varit.MUSTA));
-							} else if (rivi.equals("RATSU;VALKOINEN")) {
-								ruutu.asetaNappula(new Ratsu(Varit.VALKOINEN));
-							} else if (rivi.equals("LAHETTI;MUSTA")) {
-								ruutu.asetaNappula(new Lahetti(Varit.MUSTA));
-							} else if (rivi.equals("LAHETTI;VALKOINEN")) {
-								ruutu.asetaNappula(new Lahetti(Varit.VALKOINEN));
-							} else if (rivi.equals("KUNINGATAR;MUSTA")) {
-								ruutu.asetaNappula(new Kuningatar(Varit.MUSTA));
-							} else if (rivi.equals("KUNINGATAR;VALKOINEN")) {
-								ruutu.asetaNappula(new Kuningatar(Varit.VALKOINEN));
-							} else if (rivi.equals("KUNINGAS;MUSTA")) {
-								ruutu.asetaNappula(new Kuningas(Varit.MUSTA));
-							} else if (rivi.equals("KUNINGAS;VALKOINEN")) {
-								ruutu.asetaNappula(new Kuningas(Varit.VALKOINEN));
+						if (i % 2 == 0) {
+							if (rivi.equals("")) {
+								Shakki.annaRuudut().get(i/2).asetaNappula(null);
+							} else {
+								
+								Shakkiruutu ruutu = Shakki.annaRuudut().get(i/2);
+								
+								if (rivi.equals("SOTILAS;MUSTA")) {
+									ruutu.asetaNappula(new Sotilas(Varit.MUSTA));
+								} else if (rivi.equals("SOTILAS;VALKOINEN")) {
+									ruutu.asetaNappula(new Sotilas(Varit.VALKOINEN));
+								} else if (rivi.equals("TORNI;MUSTA")) {
+									ruutu.asetaNappula(new Torni(Varit.MUSTA));
+								} else if (rivi.equals("TORNI;VALKOINEN")) {
+									ruutu.asetaNappula(new Torni(Varit.VALKOINEN));
+								} else if (rivi.equals("RATSU;MUSTA")) {
+									ruutu.asetaNappula(new Ratsu(Varit.MUSTA));
+								} else if (rivi.equals("RATSU;VALKOINEN")) {
+									ruutu.asetaNappula(new Ratsu(Varit.VALKOINEN));
+								} else if (rivi.equals("LAHETTI;MUSTA")) {
+									ruutu.asetaNappula(new Lahetti(Varit.MUSTA));
+								} else if (rivi.equals("LAHETTI;VALKOINEN")) {
+									ruutu.asetaNappula(new Lahetti(Varit.VALKOINEN));
+								} else if (rivi.equals("KUNINGATAR;MUSTA")) {
+									ruutu.asetaNappula(new Kuningatar(Varit.MUSTA));
+								} else if (rivi.equals("KUNINGATAR;VALKOINEN")) {
+									ruutu.asetaNappula(new Kuningatar(Varit.VALKOINEN));
+								} else if (rivi.equals("KUNINGAS;MUSTA")) {
+									ruutu.asetaNappula(new Kuningas(Varit.MUSTA));
+								} else if (rivi.equals("KUNINGAS;VALKOINEN")) {
+									ruutu.asetaNappula(new Kuningas(Varit.VALKOINEN));
+								}
+								
 							}
-							
+						} else {
+							if (rivi.equals("1")) {
+								Shakkiruutu ruutu = Shakki.annaRuudut().get(i/2);
+								ruutu.annaNappula().ekaSiirtoOhi();
+							}
 						}
 					}
 					

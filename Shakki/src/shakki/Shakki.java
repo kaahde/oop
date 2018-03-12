@@ -188,7 +188,13 @@ public class Shakki extends JFrame {
 			} else {
 				tila += "\n";
 			}
+			if (r.annaNappula() == null || r.annaNappula().onkoEkaSiirto()) {
+				tila += "0\n";
+			} else {
+				tila += "1\n";
+			}
 		}
+		
 		tila += onkoValkoisenVuoro();
 		
 		return tila;
